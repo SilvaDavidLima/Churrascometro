@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #222;
+}
+
+header.self{
+    height: 60px;
+    background-color: rgba(8, 8, 8, 0.861);
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.self h1{
+    padding: 5px;
+    font-size: 2.3em;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+}
+
+.self span{
+    color: rgb(8, 226, 8);
+}
+
+.self ul.social-midia{
+    list-style: none;
+}
+
+.social-midia li{
+    display: inline-block;
+    margin: 0 25px;
+}
+
+.social-midia a{
+    text-decoration: none;
+}
+
+.social-midia i{
+    font-size: 2em;
+    padding: 7px;
+    color: white;
+}
+
+.social-midia i.fa-instagram:hover{
+    border-radius: 20%;
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf)
+}
+
+.social-midia i.fa-github:hover{
+    border-radius: 20%;
+    color: black;
+    background: white;
+}
+
+.social-midia i.fa-linkedin:hover{
+    border-radius: 20%;
+    color:  #0e76a8;
+    background: white;
+}
+
+main.container{
+    max-width: 1360px;
+    height: calc(100vh - 60px);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5)), url("../imagens/bg.jpeg"), no-repeat ;
+    background-size: cover;
+    overflow: hidden;
+}
+
+div.card{
+    box-shadow: 2px 2px 15px #666;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 25px;
+}
+
+div.card h1{
+    font-size: 2.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+main.container div.text-result{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+main.container div.text-info{
+    max-width: 90%;
+    margin-bottom: 25px;
+}
+
+.text-info h2, h3{
+    text-align: center;
+    color: rgba(225, 74, 4, 0.961);
+    margin-bottom: 15px;
+}
+
+.text-info p{
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+main.container div.result{
+    max-width: 90%;
+    display: none;
+    font-size: 1.15em;
+}
+
+div.result h4{
+    text-align: center;
+}
+
+div.result span{
+    font-size: 1.1em;
+    color: rgba(225, 74, 4, 0.961);
+}
+
+
+main.container div.churrascometro{
+    max-width: 30%;  
+    max-height: 97%;
+}
+
+.churrascometro span{
+    color: rgba(225, 74, 4, 0.961);
+}
+
+.churrascometro form p{
+    max-width: 80%;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: auto;
+    padding: 12px 0 3px;
+}
+
+.churrascometro form div{
+    max-width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    border: 1px solid #999;
+    border-radius: 30px;
+    background: white;
+}
+
+.churrascometro div input{
+    width: 100%;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.churrascometro div input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.churrascometro div i{
+    margin-left: 15px;
+    font-size: 1.5em;
+}
+
+.churrascometro button{
+    width: 80%;
+    margin: 20px 50% 0;
+    transform: translateX(-50%);
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 7px;
+    color: white;
+    background: rgba(225, 74, 4, 0.961);
+    border: none;
+    border-radius: 30px;
+}
+
+.churrascometro button:hover{
+    background: rgba(158, 51, 1, 0.961);
+}
+
+@media screen and (max-width: 500px) {
+
+    body{
+        font-size: 0.75em;
+    }
+
+    header.self{
+        display: block;
+        height: 80px;
+    }
+
+    header.self h1{
+        font-size: 1.5em;
+    }
+
+}
+
+
+@media screen and (max-width: 1000px){
+
+    body{
+        font-size: 0.9em;
+    }
+
+    main.container{
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-y: auto;
+    }
+
+    main.container div.text-result{
+        width: 100%;
+    }
+
+    main.container div.text-info, div.result{
+        max-width: 90%;
+        display: block;
+        margin: 20px auto;
+    }
+
+    main.container div.churrascometro{
+        max-width: 90%;
+        margin: 25px 0;
+    }
+
+}

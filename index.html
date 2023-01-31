@@ -3,9 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Churrascômetro</title>
 </head>
 <body>
-    
+
+    <header class="self">
+        <h1>David <span>Lima</span></h1>
+        <ul class="social-midia">
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul><!--social-midia-->
+    </header><!--self-->
+
+    <main class="container">
+
+        <div class="text-result">
+            <div class="text-info card">
+                <h1>Churrasco</h1>
+                <h2>Qual família não gosta de um bom churrasco, não é mesmo?</h2>
+
+                <p>Um bom churrasco de família e amigos rende boas conversas, risadas, atualizações de notícias dos parentes e, claro, muita comida boa.</p>
+
+                <p>Ainda assim, organizar um churrasco para a família toda pode dar trabalho e são muitos detalhes a serem considerados.</p>
+
+                <h3>Tem dúvidas da quantidade de comida que deve comprar?</h3>
+                
+                <p>Resolva esse problema de forma rápida. <strong> Descubra a quantidade necessária de acordo com o número de convidados</strong></p>        
+        
+            </div><!--text-info-->
+
+            <div class="result card">
+                <h3>A quantidade necessária para o seu Churrasco é:</h3>
+                <h4>
+                    <i class="fa-solid fa-drumstick-bite"></i>Serão necessários <span id="carne"></span> de Carne.
+                </h4>
+                <h4>
+                     <i class="fa-solid fa-beer-mug-empty"></i>
+                    Serão necessárias <span id="alcool"></span>  de Cerveja.
+                </h4>
+                <h4>
+                    <i class="fa-solid fa-bottle-water"></i>
+                    Serão necessários <span id="bebidas"></span>  de bebidas.
+                </h4>
+            </div><!--result-->
+        </div><!--text-result-->
+
+        <div class="churrascometro card">
+
+            <h1>Churras<span>cômetro</span></h1>
+
+            <form action="GET">
+                <p>Quantidade de Homens:</p>
+                <div>
+                    <i class="fa-solid fa-person"></i>
+                    <input id="homem" type="number" placeholder="Homens" min="1">
+                </div>
+                <p>Quantidade de Mulheres:</p>
+                <div>
+                    <i class="fa-solid fa-person-dress"></i>
+                    <input id="mulher" type="number" placeholder="Mulheres" min="1">
+                </div>
+                <p>Pessoas que consomem bebidas alcoolicas:</p>
+                <div>
+                    <i class="fa-solid fa-beer-mug-empty"></i>
+                    <input id="bebidaAlcoolica" type="number" placeholder="Bebidas alcoolicas" min="1">
+                </div>
+                <p>Quantidade de Crianças:</p>
+                <div>
+                    <i class="fa-solid fa-child"></i>
+                    <input id="crianca" type="number" placeholder="Crianças" min="1">
+                </div>
+                <p>Tempo de duração(h):</p>
+                <div>
+                    <i class="fa-regular fa-clock"></i>
+                    <input id="duracao" type="number" placeholder="Tempo" min="1">
+                </div>
+            </form>
+            <button onclick="calc()">Calcular</button>
+
+        </div><!--churrascometro-->
+        
+    </main><!--container-->
+
+
+    <script src="./javascript/script.js"></script>
+    <script src="https://kit.fontawesome.com/4d696a0b36.js" crossorigin="anonymous"></script>
 </body>
 </html>
