@@ -1,61 +1,100 @@
 // Fornece a quantidade de pessoas diferenciando o sexo e se é adulto ou criança e escolhendo o tipo da carne e se consomem alcool ou não.
 
 // Carne - H = 500g, M = 350g por pessoa + de 6h - H = 800g, M = 650g 
-// Cerveja - H = 1200ml, M = 800ml por Pessoa + 6h - H = 2000ml, M = 1500ml
+// Cerveja - 900ml por Pessoa; +6h - 1800ml
 // Refrigerante/água - 1000 ml por pessoa + 6h - 1500ml
 
 // Crianças valem por 0,5
 
 
+let homens = document.getElementById("homem");
+let mulheres = document.getElementById("mulher");
+let alcool = document.getElementById("bebidaAlcoolica");
+let criancas = document.getElementById("crianca");
+let duracao = document.getElementById("duracao");
+
 
 function calc(){
 
-    let homensValor = parseFloat(document.getElementById("homem").value);
-    let mulheresValor = parseFloat(document.getElementById("mulher").value);
-    let alcoolValor = parseFloat(document.getElementById("bebidaAlcoolica").value);
-    let criancasValor = parseFloat(document.getElementById("crianca").value);
-    let duracaoValor = parseFloat(document.getElementById("duracao").value);
+    let homensValor = parseFloat(homens.value);
+    let mulheresValor = parseFloat(mulheres.value);
+    let alcoolValor = parseFloat(alcool.value);
+    let criancasValor = parseFloat(criancas.value);
+    let duracaoValor = parseFloat(duracao.value);
+
 
     let result = document.getElementsByClassName("result")[0];
     let resultCarne = document.getElementById("carne");
+    let resultLinguica = document.getElementById("linguica");
     let resultAlcool = document.getElementById("alcool");
     let resultBebidas = document.getElementById("bebidas");
 
-    if(duracaoValor <= 6){
-        let homemMult = (homensValor * 500) / 1000;
-        let mulherMult = (mulheresValor * 350) / 1000;
-        let alcoolMult = Math.ceil((alcoolValor * 1000) / 350);
-        let criancaMult = homemMult / 2;
-        let bebidasMult = homensValor + mulheresValor + (criancasValor / 2);
+    let carneH = tempoCarneH(duracaoValor);
+    let carneM = tempoCarneM(duracaoValor);
+    let alcoolico = tempoAlcool(duracaoValor);
+    let bebidas = tempoBebidas(duracaoValor);
 
-        let carne = homemMult + mulherMult + criancaMult;
+        let homemMult = homensValor * carneH;
+        let mulherMult = mulheresValor * carneM;
+        let alcoolMult = alcoolValor * alcoolico;
+        let criancaMult = (criancasValor * carneH) / 2;
+        let bebidasSoma = homensValor + mulheresValor + (criancasValor / 2);
 
-      
-        let salvar = [carne, alcoolMult, bebidasMult];
+        let carneqtd = (homemMult + mulherMult + criancaMult) / 1000;
+        let carneBoi = (carneqtd * 0.7).toFixed(1);
+        let carneLinguica = (carneqtd * 0.3).toFixed(1);
 
+        let alcoolqtd = Math.ceil(alcoolMult / 350);
+        let bebidasqtd = Math.ceil((bebidasSoma * bebidas) / 1000);
+        
+        let salvar = [carneBoi, carneLinguica, alcoolqtd, bebidasqtd];
         localStorage.setItem("resultado", JSON.stringify(salvar));
-    }
-    else{
-        let homemMult = (homensValor * 800) / 1000;
-        let mulherMult = (mulheresValor * 650) / 1000;
-        let alcoolMult = Math.ceil((alcoolValor * 1500) / 350);
-        let criancaMult = homemMult / 2;
-        let bebidasMult = homensValor + mulheresValor + (criancasValor / 2);
-
-        let carne = homemMult + mulherMult + criancaMult;
-
-
-        let salvar = [carne, alcoolMult, bebidasMult];
-
-        localStorage.setItem("resultado", JSON.stringify(salvar));
-    }
+    
 
     result.style.display = "block";
 
     let resultValor = JSON.parse(localStorage.getItem("resultado"));
 
     resultCarne.innerHTML = resultValor[0] + "Kg";
-    resultAlcool.innerHTML = resultValor[1] + " latas";
-    resultBebidas.innerHTML = resultValor[2] + " litros";
+    resultLinguica.innerHTML = resultValor[1] + "Kg";
+    resultAlcool.innerHTML = resultValor[2] + " latas";
+    resultBebidas.innerHTML = resultValor[3] + " litros";
 
+}
+
+
+function tempoCarneH(duracao){
+    if(duracao >= 6 ){
+        return 800;
+    }
+    else{
+        return 500;
+    }
+}
+
+function tempoCarneM(duracao){
+    if(duracao >= 6 ){
+        return 650;
+    }
+    else{
+        return 350;
+    }
+}
+
+function tempoAlcool(duracao){
+    if(duracao >= 6 ){
+        return 1800;
+    }
+    else{
+        return 900;
+    }
+}
+
+function tempoBebidas(duracao){
+    if(duracao >= 6 ){
+        return 1500;
+    }
+    else{
+        return 1000;
+    }
 }
